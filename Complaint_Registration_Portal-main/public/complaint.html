@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" type="image/jpg" href="../Complaint/images/icon.jpg"/>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700,900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../Complaint/fonts/icomoon/style.css">
+
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../Complaint/css/bootstrap.min.css">
+    
+    <!-- Style -->
+    <link rel="stylesheet" href="../Complaint/css/style.css">
+
+    <title>Complaint form</title>
+  </head>
+  <body>
+  
+
+  <div class="content">
+    
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-10">
+          
+
+          <div class="row justify-content-center">
+            <div class="col-md-6">
+              
+              <h3 class="heading mb-4">Complaint Registration Page</h3>
+              <p>Thank you for filing this complaint. Please type in your complaint and we will try our best to get it repaired.</p>
+
+              <p><img src="../Complaint/images/1.jpg" alt="Image" class="img-fluid"></p>
+
+
+            </div>
+            <div class="col-md-6">
+              
+              <form action="/complaint" class="mb-5" method="POST" id="complaint" name="complaint" enctype="multipart/form-data">
+                <div class="row">
+                  <div class="col-md-12 form-group">
+                    <p><b>Name: </b></p>
+                    <input class="form-control" type="text" name="name" id="name" placeholder="Name"/>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12 form-group">
+                    <p><b>Phone Number: </b></p>
+                    <input class="form-control" type="tel" name="phno" id="phno" placeholder="Phone Number"/>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12 form-group">
+                    <p><b>Email: <span id="Email"></span></b></p>
+                    <input class="form-control" type="text" name="email" id="email" placeholder="Email"/>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12 form-group">
+                    <p><b>Enter a type of complaint: </b></p>
+                    <input class="form-control" type="text" name="type" id="type" placeholder="Type of Complaint"/>
+                      <!--select id="type" name="type">
+                        <option value="electrical">Electrical</option>
+                        <option value="civil">Civil</option>
+                        <option value="mechanical">Mechanical</option>
+                        <option value="it">IT</option>
+                        <option value="road">Road</option>
+                        <option value="fire">Fire</option>
+                        <option value="medical">Medical</option>
+                      </select-->
+                    
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12 form-group">
+                    <p><b>Complaint Description: </b></p>
+                    <input class="form-control" name="description" id="description" cols="30" rows="2" placeholder="Complaint Description"/>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12 form-group">
+                    
+                    <div id="demo"></div>
+
+                    <script>
+                    var x = document.getElementById("demo");
+
+                    function getLocation() {
+                      if (navigator.geolocation) {
+                        navigator.geolocation.getCurrentPosition(showPosition);
+                      } else { 
+                       x.innerHTML = "Geolocation is not supported by this browser.";
+                      }
+                    }
+
+                    function showPosition(position) {
+                      var latitude = position.coords.latitude;
+                      var longitude = position.coords.longitude;
+                      x.innerHTML = "Latitude:" + latitude + "<br>Longitude:" + longitude;
+                      //console.log("Latitude:", position.coords.latitude);
+                      //console.log("Longitude:", position.coords.longitude);
+                      document.getElementById("latitude").value = position.coords.latitude;
+                      document.getElementById("longitude").value = position.coords.longitude;
+                    }
+
+                    
+                    </script>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12 form-group">
+                    <input type="hidden" name="latitude" id="latitude" />
+                    <input type="hidden" name="longitude" id="longitude" />
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12 form-group">
+                    <p><b>Location Description: </b></p>
+                    <input class="form-control" name="location" id="location" cols="30" rows="2" placeholder="Location Description"/>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12 form-group">
+                    <p><b>Date-of-complaint: </b></p>
+                    <input type="date" class="date" name="date" id="date" placeholder="Date">
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12 form-group">
+                    <p><b>Upload Picture: </b></p>
+                    <input type="file" class="file" name="file" id="file" placeholder="File" multiple=false>
+                  </div>
+                </div> 
+                <div class="row">
+                  <div class="col-12">
+                    <button type="submit">Register Complaint</button>
+                  <span class="submitting"></span>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+    
+    
+
+    <script src="../Complaint/js/jquery-3.3.1.min.js"></script>
+    <script src="../Complaint/js/popper.min.js"></script>
+    <script src="../Complaint/js/bootstrap.min.js"></script>
+    <script src="../Complaint/js/jquery.validate.min.js"></script>
+    <script src="../Complaint/js/main.js"></script>
+    <script>
+      $( document ).ready(function() {
+    //alert( "ready!" );
+    getLocation();
+});
+    </script>
+
+
+  </body>
+</html>
